@@ -1,587 +1,510 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Happy Mother's Day ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    overflow-x:hidden;
-    background:linear-gradient(135deg,#120018,#220033,#0d0014);
-    color:white;
+overflow-x:hidden;
+background:#050505;
+color:white;
+}
+
+/* BACKGROUND */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle at top,#441166,#050505 70%);
+z-index:-3;
+}
+
+/* STARS */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-2;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:0.2;}
+50%{opacity:1;}
+}
+
+/* HEART CURSOR */
+
+.cursor-heart{
+position:absolute;
+pointer-events:none;
+font-size:18px;
+animation:heartFloat 1s linear forwards;
+}
+
+@keyframes heartFloat{
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+100%{
+opacity:0;
+transform:translateY(-30px) scale(0.5);
+}
 }
 
 /* LOADER */
 
 .loader{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#0a0012;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
+position:fixed;
+width:100%;
+height:100vh;
+background:#050505;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
 }
 
 .loader h1{
-    font-size:4rem;
-    color:#ff77aa;
-    animation:pulse 2s infinite;
-}
-
-.loader p{
-    margin-top:10px;
-    opacity:0.7;
+font-size:5rem;
+background:linear-gradient(to right,#ff4f81,#ffd166);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-    0%,100%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.1);
-    }
-}
-
-/* HEARTS */
-
-.hearts{
-    position:fixed;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:-1;
-}
-
-.heart{
-    position:absolute;
-    animation:float linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh) scale(0);
-        opacity:0;
-    }
-    to{
-        transform:translateY(-10vh) scale(1);
-        opacity:1;
-    }
+50%{transform:scale(1.1);}
 }
 
 /* HERO */
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
-    position:relative;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+position:relative;
 }
 
 .glow{
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:#ff4f81;
-    border-radius:50%;
-    filter:blur(140px);
-    opacity:0.25;
+position:absolute;
+width:500px;
+height:500px;
+background:#ff4f81;
+filter:blur(150px);
+opacity:0.2;
+border-radius:50%;
 }
 
 .hero-content{
-    max-width:850px;
-    z-index:2;
+max-width:900px;
+z-index:2;
 }
 
 .hero h1{
-    font-size:5rem;
-    line-height:1.2;
-    margin-bottom:20px;
-    background:linear-gradient(to right,#ff95c5,#ffd6e8);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-size:5rem;
+line-height:1.2;
+margin-bottom:20px;
+background:linear-gradient(to right,#ff9ac2,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    font-size:1.2rem;
-    opacity:0.8;
-    margin-bottom:40px;
-    line-height:2;
+font-size:1.2rem;
+line-height:2;
+opacity:0.8;
+margin-bottom:40px;
 }
 
 .btn{
-    padding:16px 40px;
-    border:none;
-    border-radius:40px;
-    background:linear-gradient(45deg,#ff4f81,#ff7eb3);
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 0 30px rgba(255,79,129,0.4);
+padding:16px 40px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff4f81,#ff7eb3);
+color:white;
+font-size:1rem;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 30px rgba(255,79,129,0.5);
 }
 
 .btn:hover{
-    transform:translateY(-5px) scale(1.05);
+transform:translateY(-5px) scale(1.05);
 }
 
-/* SECTION */
-
 section{
-    padding:120px 10%;
+padding:120px 10%;
 }
 
 .section-title{
-    text-align:center;
-    font-size:3rem;
-    margin-bottom:70px;
-    color:#ffd6e8;
+text-align:center;
+font-size:3rem;
+margin-bottom:70px;
+color:#ffd6e8;
+}
+
+/* GLASS CARD */
+
+.glass{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+border-radius:25px;
 }
 
 /* TIMELINE */
 
 .timeline{
-    position:relative;
-    max-width:1000px;
-    margin:auto;
+position:relative;
+max-width:1000px;
+margin:auto;
 }
 
 .timeline::after{
-    content:'';
-    position:absolute;
-    width:4px;
-    background:#ff4f81;
-    top:0;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
+content:'';
+position:absolute;
+width:4px;
+background:#ff4f81;
+top:0;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
 }
 
 .container{
-    padding:20px 40px;
-    position:relative;
-    width:50%;
+padding:20px 40px;
+position:relative;
+width:50%;
 }
 
-.left{
-    left:0;
-}
-
-.right{
-    left:50%;
-}
+.left{left:0;}
+.right{left:50%;}
 
 .content{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.1);
-    padding:30px;
-    border-radius:20px;
-    transition:0.4s;
+padding:30px;
+transition:0.5s;
 }
 
 .content:hover{
-    transform:translateY(-10px);
+transform:translateY(-10px) rotateY(5deg);
 }
 
 .content h3{
-    margin-bottom:10px;
-    color:#ffb6d1;
+margin-bottom:10px;
+color:#ffb6d1;
 }
 
 /* GALLERY */
 
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 .card{
-    position:relative;
-    overflow:hidden;
-    border-radius:25px;
-    height:350px;
-    cursor:pointer;
+height:350px;
+overflow:hidden;
+position:relative;
+border-radius:25px;
+transition:0.5s;
 }
 
 .card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:0.5s;
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.6s;
 }
 
 .card:hover img{
-    transform:scale(1.1);
+transform:scale(1.1);
 }
 
 .overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
-    display:flex;
-    align-items:flex-end;
-    padding:20px;
-    opacity:0;
-    transition:0.5s;
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+display:flex;
+align-items:flex-end;
+padding:20px;
+opacity:0;
+transition:0.5s;
 }
 
 .card:hover .overlay{
-    opacity:1;
-}
-
-/* NOTES */
-
-.notes{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.note{
-    background:rgba(255,255,255,0.07);
-    border-radius:25px;
-    padding:30px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.4s;
-}
-
-.note:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(255,79,129,0.2);
-}
-
-.note h2{
-    font-size:3rem;
-    margin-bottom:10px;
+opacity:1;
 }
 
 /* LETTER */
 
+.envelope{
+max-width:700px;
+margin:auto;
+padding:50px;
+text-align:center;
+cursor:pointer;
+transition:0.5s;
+}
+
 .letter{
-    max-width:900px;
-    margin:auto;
-    background:rgba(255,255,255,0.07);
-    border-radius:30px;
-    padding:50px;
-    line-height:2;
-    font-size:1.1rem;
-    backdrop-filter:blur(10px);
+display:none;
+margin-top:30px;
+line-height:2;
+font-size:1.1rem;
+}
+
+.envelope.open .letter{
+display:block;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 /* FINAL */
 
 .final{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
 }
 
 .final h1{
-    font-size:5rem;
-    margin-bottom:20px;
-    color:#ff8db8;
+font-size:5rem;
+margin-bottom:20px;
+color:#ff8db8;
 }
 
 .final p{
-    max-width:700px;
-    opacity:0.8;
-    margin-bottom:40px;
-    line-height:2;
+max-width:700px;
+line-height:2;
+opacity:0.8;
+margin-bottom:40px;
 }
-
-/* MUSIC */
 
 .music-btn{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    border:none;
-    background:#ff4f81;
-    color:white;
-    font-size:1.5rem;
-    cursor:pointer;
-    z-index:1000;
+position:fixed;
+bottom:30px;
+right:30px;
+width:70px;
+height:70px;
+border-radius:50%;
+border:none;
+background:#ff4f81;
+color:white;
+font-size:1.5rem;
+cursor:pointer;
+z-index:1000;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:900px){
 
 .hero h1{
-    font-size:3rem;
+font-size:3rem;
 }
 
 .timeline::after{
-    left:20px;
+left:20px;
 }
 
 .container{
-    width:100%;
-    padding-left:60px;
-    padding-right:20px;
+width:100%;
+padding-left:60px;
+padding-right:20px;
 }
 
 .right{
-    left:0;
+left:0;
 }
 
 .final h1{
-    font-size:3rem;
+font-size:3rem;
 }
 
 }
 
 </style>
 </head>
-
 <body>
+
+<div class="bg"></div>
+<div class="stars" id="stars"></div>
 
 <!-- LOADER -->
 
 <div class="loader" id="loader">
-    <h1>❤️ Maa ❤️</h1>
-    <p>Loading Pyaar...</p>
+<h1>❤️ Maa ❤️</h1>
+<p>Loading Pyaar...</p>
 </div>
-
-<!-- HEARTS -->
-
-<div class="hearts" id="hearts"></div>
 
 <!-- HERO -->
 
 <section class="hero">
-
 <div class="glow"></div>
 
-<div class="hero-content">
-
+<div class="hero-content" data-aos="zoom-in">
 <h1>Happy Mother's Day ❤️</h1>
 
 <p>
-Maa...  
-Aap meri zindagi ki sabse khoobsurat blessing ho ✨  
-Har mushkil mein aapne mera saath diya,  
-aur har khushi ko aur bhi special banaya ❤️
+Maa... Aap meri duniya ki sabse beautiful blessing ho ✨
+Aapke bina meri life adhuri hai ❤️
 </p>
 
-<a href="#timeline">
+<a href="#journey">
 <button class="btn">Journey Start Karein ✨</button>
 </a>
-
 </div>
-
 </section>
 
-<!-- TIMELINE -->
+<!-- JOURNEY -->
 
-<section id="timeline">
-
-<h2 class="section-title">Hamari Khoobsurat Journey ❤️</h2>
+<section id="journey">
+<h2 class="section-title" data-aos="fade-up">Hamari Journey ❤️</h2>
 
 <div class="timeline">
 
-<div class="container left">
-<div class="content">
+<div class="container left" data-aos="fade-right">
+<div class="content glass">
 <h3>👶 Bachpan</h3>
 <p>
-Jab main chalna bhi nahi jaanta tha,  
-tab aapne mera haath pakda ❤️
+Jab main girta tha tab aap mujhe sambhalti thi ❤️
 </p>
 </div>
 </div>
 
-<div class="container right">
-<div class="content">
-<h3>📚 School Days</h3>
+<div class="container right" data-aos="fade-left">
+<div class="content glass">
+<h3>📚 School Life</h3>
 <p>
-Aap khud thak jaati thi,  
-phir bhi mere future ke liye hamesha mehnat karti rahi ✨
+Aapne mere future ke liye bahut sacrifice kiya ✨
 </p>
 </div>
 </div>
 
-<div class="container left">
-<div class="content">
+<div class="container left" data-aos="fade-right">
+<div class="content glass">
 <h3>🌟 Mere Sapne</h3>
 <p>
-Jab duniya doubt karti thi,  
-tab aapne mujh par bharosa kiya ❤️
-</p>
-</div>
-</div>
-
-<div class="container right">
-<div class="content">
-<h3>❤️ Forever</h3>
-<p>
-Chahe main kitna bhi bada ho jaun,  
-main hamesha aapka baccha hi rahunga 🌸
+Aap hamesha meri strength bani ❤️
 </p>
 </div>
 </div>
 
 </div>
-
 </section>
 
 <!-- GALLERY -->
 
 <section>
-
-<h2 class="section-title">Hamari Yaadein 📸</h2>
+<h2 class="section-title" data-aos="zoom-in">Hamari Yaadein 📸</h2>
 
 <div class="gallery">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
-<div class="overlay">
-<h3>Aapke Saath Har Moment Special Hai ❤️</h3>
-</div>
-</div>
-
-<div class="card">
+<div class="card glass" data-aos="zoom-in">
 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop">
 <div class="overlay">
-<h3>Aapki Smile Meri Khushi Hai 🌸</h3>
+<h3>Aapki Smile Meri Khushi Hai ❤️</h3>
 </div>
 </div>
 
-<div class="card">
+<div class="card glass" data-aos="zoom-in">
 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop">
 <div class="overlay">
 <h3>Aap Meri Inspiration Ho ✨</h3>
 </div>
 </div>
 
+<div class="card glass" data-aos="zoom-in">
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Har Moment Special Hai 🌸</h3>
 </div>
-
-</section>
-
-<!-- NOTES -->
-
-<section>
-
-<h2 class="section-title">Main Aapse Itna Pyaar Kyun Karta Hoon ❤️</h2>
-
-<div class="notes">
-
-<div class="note">
-<h2>💖</h2>
-<h3>Aapka Pyaar</h3>
-<p>
-Aap hamesha mujhe khud se zyada importance deti ho ❤️
-</p>
-</div>
-
-<div class="note">
-<h2>🌸</h2>
-<h3>Aapki Kindness</h3>
-<p>
-Aapka dil duniya ka sabse pure dil hai ✨
-</p>
-</div>
-
-<div class="note">
-<h2>🌟</h2>
-<h3>Aapki Strength</h3>
-<p>
-Aap kabhi haar nahi maanti ❤️
-</p>
 </div>
 
 </div>
-
 </section>
 
 <!-- LETTER -->
 
 <section>
+<h2 class="section-title" data-aos="fade-up">Maa Ke Naam Ek Chitthi 💌</h2>
 
-<h2 class="section-title">Maa Ke Naam Ek Chitthi 💌</h2>
+<div class="envelope glass" id="envelope" onclick="openLetter()" data-aos="zoom-in">
+<h2>📩 Click To Open Letter</h2>
 
 <div class="letter">
 
-Pyaari Maa,
+Pyaari Maa ❤️
 <br><br>
-
-Thank You itna pyaar dene ke liye ❤️  
-Mere har difficult moment mein mere saath khade rehne ke liye thank you.
+Thank You mere har difficult moment mein mere saath rehne ke liye ✨
 
 <br><br>
-
-Aapne hamesha mere sapno par bharosa kiya,  
-jab mujhe khud par bhi doubt hota tha ✨
+Aap meri life ki sabse precious person ho 🌸
 
 <br><br>
-
-Main shayad har baar bol nahi pata,  
-lekin meri har khushi ki wajah aap ho 🌸
-
-<br><br>
-
-Aap meri first teacher ho,  
-meri safest place ho,  
-aur meri zindagi ki sabse badi blessing ho ❤️
+Main shayad har baar express nahi kar pata,
+lekin main aapse bahut pyaar karta hoon ❤️
 
 <br><br>
-
 I Love You Maa ❤️
 
-<br><br>
-
-— Aapka Baccha
-
 </div>
-
+</div>
 </section>
 
 <!-- FINAL -->
 
 <section class="final">
+<h1 data-aos="zoom-in">Thank You Maa ❤️</h1>
 
-<h1>Thank You Maa ❤️</h1>
-
-<p>
-Aap sirf meri Maa nahi ho...  
-Aap meri duniya ho ✨  
-Meri strength ho,  
-aur meri sabse badi motivation ❤️
+<p data-aos="fade-up">
+Aap meri strength ho,
+meri happiness ho,
+aur meri puri duniya ho ✨
 </p>
 
-<button class="btn" onclick="celebrate()">
-Celebrate Love 🎉
-</button>
-
+<button class="btn" onclick="celebrate()">Celebrate Love 🎉</button>
 </section>
 
 <!-- MUSIC -->
@@ -590,97 +513,93 @@ Celebrate Love 🎉
 <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c1eebf3f8.mp3?filename=sweet-piano-love-114997.mp3">
 </audio>
 
-<button class="music-btn" onclick="toggleMusic()">
-🎵
-</button>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- JS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script>
 
-/* LOADER */
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-document.getElementById("loader").style.display="none";
-},2500);
-
+AOS.init({
+duration:1200,
+once:false
 });
 
-/* HEARTS */
+/* LOADER */
 
-const hearts=document.getElementById("hearts");
+window.addEventListener('load',()=>{
+setTimeout(()=>{
+document.getElementById('loader').style.display='none';
+},2500);
+});
 
-function createHeart(){
+/* STARS */
 
-const heart=document.createElement("div");
+const stars=document.getElementById('stars');
 
-heart.classList.add("heart");
+for(let i=0;i<150;i++){
+const star=document.createElement('div');
+star.classList.add('star');
+star.style.left=Math.random()*100+'vw';
+star.style.top=Math.random()*100+'vh';
+star.style.animationDuration=Math.random()*3+2+'s';
+stars.appendChild(star);
+}
 
-heart.innerHTML="❤️";
+/* HEART CURSOR */
 
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=Math.random()*25+15+"px";
-
-heart.style.animationDuration=Math.random()*5+5+"s";
-
-hearts.appendChild(heart);
+window.addEventListener('mousemove',e=>{
+const heart=document.createElement('div');
+heart.className='cursor-heart';
+heart.innerHTML='💖';
+heart.style.left=e.pageX+'px';
+heart.style.top=e.pageY+'px';
+document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},10000);
-
-}
-
-setInterval(createHeart,300);
+},1000);
+});
 
 /* MUSIC */
 
-const music=document.getElementById("music");
-
+const music=document.getElementById('music');
 let playing=false;
 
 function toggleMusic(){
-
 if(!playing){
 music.play();
 playing=true;
-}
-else{
+}else{
 music.pause();
 playing=false;
 }
-
 }
 
-/* CELEBRATE */
+/* LETTER */
+
+function openLetter(){
+document.getElementById('envelope').classList.toggle('open');
+}
+
+/* CELEBRATION */
 
 function celebrate(){
 
-for(let i=0;i<100;i++){
+for(let i=0;i<150;i++){
 
-const confetti=document.createElement("div");
-
-confetti.innerHTML="💖";
-
-confetti.style.position="fixed";
-
-confetti.style.left=Math.random()*100+"vw";
-
-confetti.style.top="-20px";
-
-confetti.style.fontSize=Math.random()*30+10+"px";
-
-confetti.style.zIndex="9999";
-
-confetti.style.transition="4s linear";
+const confetti=document.createElement('div');
+confetti.innerHTML='❤️';
+confetti.style.position='fixed';
+confetti.style.left=Math.random()*100+'vw';
+confetti.style.top='-20px';
+confetti.style.fontSize=Math.random()*30+10+'px';
+confetti.style.zIndex='9999';
+confetti.style.transition='4s linear';
 
 document.body.appendChild(confetti);
 
 setTimeout(()=>{
-confetti.style.top="100vh";
+confetti.style.top='100vh';
 },100);
 
 setTimeout(()=>{
@@ -689,11 +608,11 @@ confetti.remove();
 
 }
 
-alert("Happy Mother's Day Maa ❤️");
-
+alert('Happy Mother\'s Day Maa ❤️');
 }
 
 </script>
-
 </body>
-</html>
+<
+
+```
